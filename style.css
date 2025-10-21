@@ -1,0 +1,48 @@
+body {
+  font-family: "Georgia", "Times New Roman", serif;
+    font-size: 30px;
+    color: #333;
+  margin: 0;
+  background-color: #ffc0cb;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  border-color: #ff69b4; /* roz mai intens la hover */
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
