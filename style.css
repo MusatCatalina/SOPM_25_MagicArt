@@ -24,6 +24,12 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logo {
     display: inline-block; 
     vertical-align: middle;
@@ -78,12 +84,12 @@ nav a.active {
     display: flex; 
     flex-wrap: wrap; 
     align-items: flex-start;
+    gap: 30px; 
 }
 
 .hero-text-block {
     flex: 1; 
     min-width: 300px; 
-    padding-left: 30px; 
 }
 
 .hero-image-block {
@@ -97,8 +103,11 @@ nav a.active {
     height: 400px; 
     object-fit: cover; 
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    border: 1px solid #ddd;
+    /* Păstrăm umbra existentă și adăugăm o strălucire roz estompată */
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.1), /* Umbra originală */
+        0 0 12px 6px rgba(88, 71, 84, 0.5); /* NOU: Strălucire estompată roz (#e89bd3) */
+    border: 1px solid #000000;
 }
 
 .sub-heading {
@@ -148,42 +157,198 @@ nav a.active {
     font-size: 1em;
     font-weight: 600;
     margin: 25px 0;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s; /* Păstrăm tranziția pentru hover */
     box-shadow: 0 4px 8px rgba(238, 137, 201, 0.3); 
 }
 
 .order-button:hover {
     background-color: #cf42a5;
+    transform: scale(1.05); /* Păstrăm efectul simplu de hover */
 }
 
 /* ========================================= */
-/* 4. FOOTER */
+/* 4. SECȚIUNEA DESPRE ARTIST (ABOUT) */
 /* ========================================= */
-footer {
-    background: #ffffff; 
-    padding: 20px 0;
-    margin-top: 50px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); 
-    color: #555;
+
+.section-title {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin: 60px 0 30px 0;
+    padding-top: 20px;
+    border-top: 1px solid #ddd; 
+}
+
+.artist-about-content {
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    padding: 30px;
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: flex-start;
+    flex-direction: row; 
+    gap: 30px; 
+}
+
+.about-text-block {
+    flex: 2; 
+    min-width: 300px; 
+}
+
+.about-image-block {
+    flex: 1; 
+    min-width: 250px; 
+    text-align: center;
+    order: 2; 
+}
+.about-image-block img {
+    max-width: 100%;
+    height: 350px; 
+    width: 100%; 
+    object-fit: cover; 
+    border-radius: 10px;
+    /* Păstrăm umbra existentă și adăugăm o strălucire roz estompată */
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.1), /* Umbra originală */
+        0 0 12px 6px rgba(232, 155, 211, 0.5); /* NOU: Strălucire estompată roz (#e89bd3) */
+    border: 1px solid #e89bd3; 
+}
+.about-text-block h3.sub-heading {
+    color: #e89bd3;
+    margin-top: 0;
+}
+/* ========================================= */
+/* 5. PORTFOLIO CARUSEL (SLIDER) - NOU */
+/* ========================================= */
+.portfolio-carousel {
+    position: relative;
+    max-width: 1000px; /* Lățimea maximă a caruselului */
+    margin: 50px auto; /* Centrează și oferă spațiu */
+    overflow: hidden; /* Ascunde imaginile care nu sunt vizibile */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 20px; /* Padding pentru a evita ca umbra butonului să fie tăiată */
+}
+
+.carousel-container {
+    overflow: hidden; /* Asigură că doar imaginile vizibile apar */
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Animație la schimbarea imaginilor */
+    width: fit-content; /* Lățimea totală a tuturor elementelor */
+}
+
+.carousel-item {
+    min-width: 100%; /* Fiecare element ocupă 100% din lățimea vizibilă a containerului */
+    box-sizing: border-box; /* Include padding-ul și border-ul în lățime */
+    flex-shrink: 0; /* Previne micșorarea elementelor */
+    padding: 0 10px; /* Spațiu între imagini, ajustați dacă doriți ca imaginile să fie lipite */
     text-align: center;
 }
 
+.carousel-item img {
+    max-width: 100%;
+    height: 400px; /* Înălțime fixă pentru toate imaginile */
+    object-fit: cover; /* Asigură că imaginea umple spațiul fără a se deforma */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(232, 155, 211, 0.8); /* Culoare roz semi-transparentă */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50%; /* Butoane circulare */
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 10; /* Asigură că butoanele sunt deasupra imaginilor */
+}
+
+.carousel-button:hover {
+    background-color: #cf42a5; /* Culoare roz mai intensă la hover */
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
 /* ========================================= */
-/* 5. RESPONSIVITATE */
+/* 6. FOOTER */
+/* ========================================= */
+footer {
+    /* ... (stiluri existente) ... */
+    margin-top: 50px; /* Asigură spațiu după carusel */
+}
+
+/* ========================================= */
+/* 7. RESPONSIVITATE (UPDATE) */
 /* ========================================= */
 @media (max-width: 900px) {
-    .hero-main-content {
-        flex-direction: column; 
+    /* ... (stiluri existente pentru hero și about) ... */
+
+    /* Carusel pe ecrane mici */
+    .portfolio-carousel {
+        padding: 10px;
     }
-    .hero-text-block {
-        padding-left: 0; 
-        padding-top: 30px; 
+    .carousel-item {
+        padding: 0 5px; /* Spațiu mai mic între imagini pe mobil */
     }
-    .hero-image-block img {
-        height: auto;
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 1.2em;
     }
-    nav {
-        display: block;
-        text-align: center;
+    .carousel-item img {
+        height: 250px; /* Înălțime mai mică pe mobil */
+    }
+}
+
+/* ========================================= */
+/* 8. ANIMAȚII */
+/* ========================================= */ 
+
+/* Containerul de animație */
+#particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Asigură că poți interacționa cu conținutul paginii */
+    z-index: -1; /* Plasează-l sub tot conținutul */
+    overflow: hidden;
+}
+
+/* Stil de bază pentru floricele */
+.particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: transform 0.05s linear, opacity 0.5s;
+}
+
+/* Definim animația de cădere */
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(720deg); /* Cădere pe toată înălțimea vizibilă */
+        opacity: 0;
     }
 }

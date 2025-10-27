@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galerie de Artă - Home</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+    
+    <div id="particle-container"></div>
+    
     <header>
         <div class="container">
             <div class="logo">
@@ -22,7 +26,7 @@
     </header>
 
     <div class="container">
-        <h1 class="main-heading">CREĂM ARTĂ PERSONALIZATĂ. VIZIUNEA TA, O OPERĂ UNICĂ.</h1>
+        <h1 class="main-heading">ARTĂ PERSONALIZATĂ. VIZIUNEA TA, O OPERĂ UNICĂ.</h1>
 
         <section class="hero-main-content">
             <div class="hero-image-block">
@@ -42,12 +46,47 @@
                 </ul>
             </div>
         </section>
-    </div>
 
-    <footer>
+        <h2 class="section-title">DESPRE ARTIST - MUȘAT CĂTĂLINA</h2>
+
+        <section class="artist-about-content">
+            <div class="about-text-block">
+                <h3 class="sub-heading">Viziunea mea: Să dau viață emoției pe pânză.</h3>
+                <p>Sunt Cătălina, iar arta este pentru mine o formă de respirație, o cale prin care pot atinge suflete și opri timpul pentru o clipă. De la creion la pensulă, caut să redau emoția sinceră și lumina care ne înconjoară, în lucrări pline de viață și sens.</p>
+                <p>Fiecare portret sau tablou pe care îl creez este mai mult decât o imagine, este o poveste, o reflecție a caracterului și a trăirii. Încerc să găsesc mereu acel „ceva” unic care definește o persoană, un loc sau o clipă.</p>
+                <p>Cred că arta personalizată este un dar profund, o legătură între generații, o amintire care nu se estompează.</p>
+                <p>Vă invit să explorăm împreună culorile și liniile care definesc viziunea dumneavoastră. Împreună, transformăm o simplă fotografie sau idee într-o operă de artă unică, creată din pasiune pură și dedicare.</p>
+            </div>
+            <div class="about-image-block">
+                <img src="artist.jpeg" alt="Portretul artistului Musat Catalina">
+            </div>
+        </section>
+        
+        <h2 class="section-title">PORTFOLIU: EXEMPLE ALE CREAȚIILOR MELE</h2>
+
+        <section class="portfolio-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="img2.jpeg" alt="Exemplu Portret 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img1.jpeg" alt="Exemplu Peisaj 1">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button prev">&lt;</button>
+            <button class="carousel-button next">&gt;</button>
+        </section>
+        
+    </div> <footer>
         <div class="container">
             <p>&copy; 2025 Galerie de Artă. Toate drepturile rezervate.</p>
         </div>
     </footer>
+    
+    <script src="carousel.js"></script>
+    <script src="particles.js"></script> 
+    
 </body>
 </html>
