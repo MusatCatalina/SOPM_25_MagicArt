@@ -1,0 +1,281 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #ffeef2;
+  color: #7b1f3a;
+  text-align: center;
+}
+
+/* HEADER */
+header {
+  background-color: #f8c8d8;
+  padding: 20px;
+  color: #7b1f3a;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #7b1f3a;
+  text-decoration: none;
+  margin: 0 10px;
+  background: #fddde6;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+  background: #fbb6c9;
+  color: white;
+}
+
+/* INTRO */
+.intro {
+  padding: 50px 20px 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.intro h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* GALERIE */
+.gallery-preview {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 60px;
+  margin: 40px 0;
+}
+
+.gallery-left, .gallery-right {
+  width: 40%;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.image-grid img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.image-grid img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 4px 15px rgba(232, 106, 146, 0.3);
+}
+
+/* FORMULAR */
+.custom-form {
+  background: #ffdce4;
+  border-radius: 20px;
+  padding: 40px;
+  width: 80%;
+  margin: 0 auto 60px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.photo-tip {
+  background: #f9c5d1;
+  border-left: 5px solid #e86a92;
+  padding: 10px;
+  border-radius: 10px;
+  width: 80%;
+  margin: 20px auto;
+  font-size: 0.9em;
+}
+
+/* UPLOAD */
+.upload-label {
+  background-color: #e86a92;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+
+.upload-label:hover {
+  background-color: #d4567e;
+}
+
+#previewImage {
+  width: 200px;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(232, 106, 146, 0.2);
+}
+
+/* === OPȚIUNI (CARICATURĂ / PORTRET) === */
+.image-selection {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.option-card {
+  width: 250px; /* lățime fixă */
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  border: 3px solid transparent;
+  text-align: center;
+}
+
+.option-card img {
+  width: 100%;
+  height: 250px; /* pătrat proporționat */
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.option-card:hover img {
+  transform: scale(1.05);
+}
+
+.option-card.selected {
+  border: 3px solid #e86a92;
+  box-shadow: 0 0 20px rgba(232,106,146,0.4);
+  transform: scale(1.05);
+}
+
+.option-card p {
+  background: #ffeef2;
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+  color: #7b1f3a;
+  border-radius: 0 0 12px 12px;
+}
+
+/* FORM INPUTS */
+.form-group {
+  width: 60%;
+  margin: 15px auto;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #f3a9c3;
+  background: #fff;
+  color: #7b1f3a;
+}
+
+/* BUTTON */
+button.submit-btn {
+  background: #e86a92;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+button.submit-btn:hover {
+  background: #d4567e;
+  transform: scale(1.05);
+}
+
+/* CONFIRMATION */
+.confirmation-message {
+  background: #f9c5d1;
+  border-radius: 15px;
+  padding: 25px;
+  margin-top: 40px;
+  color: #7b1f3a;
+}
+
+/* MODAL (LIGHTBOX) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 222, 230, 0.95);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 45%; /* imagine mai mică */
+  max-width: 550px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(232, 106, 146, 0.4);
+  animation: zoomInSoft 0.5s ease;
+}
+
+#caption {
+  text-align: center;
+  color: #7b1f3a;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 60px;
+  color: #7b1f3a;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #e86a92;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f8c8d8;
+  padding: 20px;
+  color: #7b1f3a;
+  font-weight: bold;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomInSoft {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
