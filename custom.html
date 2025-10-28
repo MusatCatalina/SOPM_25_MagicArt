@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie de Artă - Cadou Personalizat</title>
+  <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+  <header>
+    <h1>Galerie de Artă</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="custom.html" class="active">Custom</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2>Oferă un cadou drag unei persoane apropiate... sau chiar ție 💝</h2>
+    <p>
+      Transforma o amintire frumoasă într-o operă de artă. 
+      Alege între un portret elegant sau o caricatură plină de viață, 
+      realizate cu grijă și suflet pentru fiecare detaliu.
+    </p>
+  </section>
+
+  <section class="gallery-preview">
+    <div class="gallery-left">
+      <h3>Caricaturi</h3>
+      <div class="image-grid">
+        <img src="caricatura1.jpg" alt="Caricatură 1">
+        <img src="caricatura2.jpg" alt="Caricatură 2">
+      </div>
+    </div>
+
+    <div class="gallery-right">
+      <h3>Portrete</h3>
+      <div class="image-grid">
+        <img src="portret1.jpg" alt="Portret 1">
+        <img src="portret2.jpg" alt="Portret 2">
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-form">
+    <h2>Comandă un tablou personalizat 🎨</h2>
+    <p class="photo-tip">
+      📷 Fotografia trebuie să fie <strong>clară, luminoasă și fără filtre</strong>.
+    </p>
+
+    <div class="upload-box">
+      <label for="photoUpload" class="upload-label">Încarcă poza ta</label>
+      <input type="file" id="photoUpload" accept="image/*">
+      <img id="previewImage" style="display:none;" alt="Previzualizare">
+    </div>
+
+    <h3>Alege tipul lucrării:</h3>
+    <div class="image-selection">
+      <div class="option-card" data-type="caricatura">
+        <img src="caricatura1.jpg" alt="Caricatură">
+        <p>Caricatură</p>
+      </div>
+      <div class="option-card" data-type="portret">
+        <img src="portret1.jpg" alt="Portret">
+        <p>Portret</p>
+      </div>
+    </div>
+
+    <form id="orderForm">
+      <div class="form-group">
+        <label>Nume complet:</label>
+        <input type="text" id="name" placeholder="Ex: Ana Popescu" required>
+      </div>
+
+      <div class="form-group">
+        <label>Adresă de email:</label>
+        <input type="email" id="email" placeholder="exemplu@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Număr de telefon:</label>
+        <input type="tel" id="phone" placeholder="07XXXXXXXX" required>
+      </div>
+
+      <div class="form-group">
+        <label>Metoda preferată de contact:</label>
+        <select id="contactMethod" required>
+          <option value="">Selectează...</option>
+          <option value="email">Email</option>
+          <option value="telefon">Telefon</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Trimite comanda</button>
+    </form>
+
+    <div id="confirmationMessage" class="confirmation-message" style="display:none;">
+      <h3>✨ Comanda ta a fost înregistrată cu succes!</h3>
+      <p>Îți mulțumim, <span id="clientName"></span>! Echipa noastră te va contacta în cel mai scurt timp 💌</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Galerie de Artă. Creat cu drag și culoare.</p>
+  </footer>
+
+  <!-- MODAL pentru imagine mărită -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption"></div>
+  </div>
+
+  <script>
+    const photoUpload = document.getElementById("photoUpload");
+    const previewImage = document.getElementById("previewImage");
+    const form = document.getElementById("orderForm");
+    const confirmation = document.getElementById("confirmationMessage");
+    const cards = document.querySelectorAll(".option-card");
+    let selectedType = "";
+
+    photoUpload.addEventListener("change", () => {
+      const file = photoUpload.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          previewImage.src = e.target.result;
+          previewImage.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        cards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        selectedType = card.getAttribute("data-type");
+      });
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const contactMethod = document.getElementById("contactMethod").value;
+      const file = photoUpload.files[0];
+      if (!file) {
+        alert("Te rog încarcă o poză clară înainte de a trimite comanda!");
+        return;
+      }
+      if (!selectedType) {
+        alert("Selectează tipul lucrării!");
+        return;
+      }
+      form.style.display = "none";
+      confirmation.style.display = "block";
+      document.getElementById("clientName").textContent = name;
+    });
+
+    // --- Efect Lightbox pentru pozele din galerie ---
+    const images = document.querySelectorAll('.gallery-preview img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('caption');
+    const closeBtn = document.querySelector('.close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+      });
+    });
+
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    };
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
