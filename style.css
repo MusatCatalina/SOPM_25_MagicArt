@@ -2,143 +2,120 @@
 /* 1. STILURI GLOBALE ȘI LAYOUT-UL DE BAZĂ */
 /* ========================================= */
 body {
-    margin: 0;
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #f0f0f0; 
-    color: #333; 
-    text-align: left; 
+    margin: 0; /* Elimină spațiul implicit al paginii */
+    font-family: 'Poppins', Arial, sans-serif; /* Setează fontul principal */
+    background-color: #f0f0f0; /* Culoare de fundal generală */
+    color: #333; /* Culoarea textului implicit */
+    text-align: left; /* Alinierea textului la stânga */
 }
 
 .container {
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px;
+    max-width: 1200px; /* Lățime maximă a conținutului */
+    margin: 0 auto; /* Centrează conținutul pe orizontală */
+    padding: 0 20px; /* Spațiu interior lateral */
+}
+
+.page-section {
+    padding: 40px 20px; /* Spațiu interior pentru fiecare secțiune */
+    max-width: 1200px;
+    margin: 0 auto; /* Centrează secțiunea */
 }
 
 /* ========================================= */
 /* 2. HEADER ȘI NAVIGARE */
 /* ========================================= */
 header {
-    background-color: #ffffff; 
-    padding: 10px 0; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: #ffffff; /* Fundal alb pentru antet */
+    padding: 10px 0; /* Spațiu interior sus-jos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Umbră subtilă sub antet */
 }
 
 .logo {
-    display: inline-block; 
-    vertical-align: middle;
-    margin-right: 40px;
+    display: inline-block; /* Logo-ul pe același rând cu navigația */
+    vertical-align: middle; 
+    margin-right: 40px; /* Distanță față de meniul de navigare */
 }
 
 .logo img {
-    height: 40px; 
+    height: 40px; /* Dimensiune fixă pentru imaginea logo */
     vertical-align: middle;
 }
 
 nav {
-    display: inline-block; 
+    display: inline-block; /* Meniul de navigare pe același rând cu logo */
     vertical-align: middle;
 }
 
 nav a {
-    color: #555; 
-    text-decoration: none;
-    margin: 0 15px;
-    padding: 10px 0; 
-    transition: color 0.3s, border-bottom 0.3s;
+    color: #555; /* Culoarea textului din meniu */
+    text-decoration: none; /* Elimină sublinierea */
+    margin: 0 15px; /* Distanță între linkuri */
+    padding: 10px 0;
+    transition: color 0.3s, border-bottom 0.3s; /* Efect de tranziție pe hover */
     font-size: 1em;
     font-weight: 500;
-    background: none; 
-    border-radius: 0; 
-    border-bottom: 2px solid transparent; 
+    border-bottom: 2px solid transparent; /* Linie invizibilă la bază */
 }
 
 nav a:hover,
 nav a.active {
-    color: #e89bd3; 
-    border-bottom: 2px solid #e89bd3; 
+    color: #e89bd3; /* Schimbă culoarea la hover sau pagină activă */
+    border-bottom: 2px solid #e89bd3; /* Linie roz sub linkul activ */
 }
 
 /* ========================================= */
-/* 3. SECȚIUNEA PRINCIPALĂ (HERO) */
+/* 3. SECȚIUNEA PRINCIPALĂ HOME */
 /* ========================================= */
 .main-heading {
-    font-size: 2.2em;
+    font-size: 2.2em; /* Dimensiune mare pentru titlu */
     color: #333;
     margin: 40px auto 30px auto;
-    text-align: center; 
-    max-width: 900px;
-}
-
-.hero-main-content {
-    background-color: #ffffff; 
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-    padding: 30px;
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: flex-start;
-    gap: 30px; 
-}
-
-.hero-text-block {
-    flex: 1; 
-    min-width: 300px; 
-}
-
-.hero-image-block {
-    flex: 1; 
-    min-width: 300px; 
     text-align: center;
+    max-width: 900px; /* Lățime limitată pentru lizibilitate */
+}
+
+/* Bloc principal de conținut din pagina Home */
+.hero-main-content { 
+    background-color: #ffffff; 
+    border-radius: 10px; /* Colțuri rotunjite */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Umbră subtilă */
+    padding: 30px;
+    display: flex; /* Layout pe două coloane */
+    flex-wrap: wrap; /* Permite adaptarea pe ecrane mici */
+    align-items: flex-start;
+}
+
+/* STIL PENTRU IMAGINEA DIN HOME */
+.hero-image-block {
+    flex: 1; /* Ocupă jumătate din spațiu */
+    min-width: 300px;
+    text-align: center;
+    padding-right: 30px;
 }
 
 .hero-image-block img {
     max-width: 100%;
-    height: 400px; 
-    object-fit: cover; 
+    height: 400px;
+    object-fit: cover; /* Imaginea acoperă complet spațiul */
     border-radius: 10px;
-    /* Păstrăm umbra existentă și adăugăm o strălucire roz estompată */
-    box-shadow: 
-        0 4px 10px rgba(0, 0, 0, 0.1), /* Umbra originală */
-        0 0 12px 6px rgba(88, 71, 84, 0.5); /* NOU: Strălucire estompată roz (#e89bd3) */
-    border: 1px solid #000000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
 }
 
-.sub-heading {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-    font-weight: bold;
+.hero-text-block {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 30px;
 }
 
-.hero-main-content p {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
+/* LISTĂ CU BULINE PERSONALIZATE */
 .hero-main-content ul {
-    list-style: none; 
+    list-style: none;
     padding: 0;
     margin-top: 20px;
 }
-
-.hero-main-content ul li {
-    margin-bottom: 10px;
-    color: #555;
-    font-size: 0.95em;
-    display: flex;
-    align-items: flex-start;
-}
-
 .hero-main-content ul li::before {
-    content: "✓"; 
+    content: "✓"; /* Adaugă o bifă înaintea fiecărui element */
     color: #e89bd3; 
     font-weight: bold;
     margin-right: 10px;
@@ -146,209 +123,327 @@ nav a.active {
     line-height: 1.6;
 }
 
-/* Butonul "Plasează comanda" */
-.order-button {
+/* BUTON DE COMANDĂ PERSONALIZAT */
+.order-button { 
     display: inline-block;
     background-color: #e89bd3; 
     color: white;
     text-decoration: none;
     padding: 12px 25px;
-    border-radius: 25px; 
+    border-radius: 25px;
     font-size: 1em;
     font-weight: 600;
     margin: 25px 0;
-    transition: background-color 0.3s, transform 0.3s; /* Păstrăm tranziția pentru hover */
-    box-shadow: 0 4px 8px rgba(238, 137, 201, 0.3); 
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(238, 137, 201, 0.3);
+    border: none;
 }
 
 .order-button:hover {
-    background-color: #cf42a5;
-    transform: scale(1.05); /* Păstrăm efectul simplu de hover */
+    background-color: #cf42a5; /* Culoare mai intensă la hover */
 }
 
 /* ========================================= */
-/* 4. SECȚIUNEA DESPRE ARTIST (ABOUT) */
+/* 4. STILURI SHOP */
 /* ========================================= */
 
-.section-title {
-    font-size: 1.8em;
-    color: #333;
+/* Animație fade-in pentru carduri */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Descriere introductivă magazin */
+.shop-intro {
     text-align: center;
-    margin: 60px 0 30px 0;
-    padding-top: 20px;
-    border-top: 1px solid #ddd; 
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
 }
 
-.artist-about-content {
-    background-color: #ffffff; 
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
-    padding: 30px;
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: flex-start;
-    flex-direction: row; 
-    gap: 30px; 
-}
-
-.about-text-block {
-    flex: 2; 
-    min-width: 300px; 
-}
-
-.about-image-block {
-    flex: 1; 
-    min-width: 250px; 
-    text-align: center;
-    order: 2; 
-}
-.about-image-block img {
-    max-width: 100%;
-    height: 350px; 
-    width: 100%; 
-    object-fit: cover; 
-    border-radius: 10px;
-    /* Păstrăm umbra existentă și adăugăm o strălucire roz estompată */
-    box-shadow: 
-        0 4px 10px rgba(0, 0, 0, 0.1), /* Umbra originală */
-        0 0 12px 6px rgba(232, 155, 211, 0.5); /* NOU: Strălucire estompată roz (#e89bd3) */
-    border: 1px solid #e89bd3; 
-}
-.about-text-block h3.sub-heading {
-    color: #e89bd3;
-    margin-top: 0;
-}
-/* ========================================= */
-/* 5. PORTFOLIO CARUSEL (SLIDER) - NOU */
-/* ========================================= */
-.portfolio-carousel {
-    position: relative;
-    max-width: 1000px; /* Lățimea maximă a caruselului */
-    margin: 50px auto; /* Centrează și oferă spațiu */
-    overflow: hidden; /* Ascunde imaginile care nu sunt vizibile */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    padding: 20px; /* Padding pentru a evita ca umbra butonului să fie tăiată */
-}
-
-.carousel-container {
-    overflow: hidden; /* Asigură că doar imaginile vizibile apar */
-    width: 100%;
-}
-
-.carousel-track {
+/* FILTRE DE CĂUTARE */
+.shop-filters {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Animație la schimbarea imaginilor */
-    width: fit-content; /* Lățimea totală a tuturor elementelor */
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap; /* Se adaptează pe mobile */
 }
 
-.carousel-item {
-    min-width: 100%; /* Fiecare element ocupă 100% din lățimea vizibilă a containerului */
-    box-sizing: border-box; /* Include padding-ul și border-ul în lățime */
-    flex-shrink: 0; /* Previne micșorarea elementelor */
-    padding: 0 10px; /* Spațiu între imagini, ajustați dacă doriți ca imaginile să fie lipite */
-    text-align: center;
-}
-
-.carousel-item img {
-    max-width: 100%;
-    height: 400px; /* Înălțime fixă pentru toate imaginile */
-    object-fit: cover; /* Asigură că imaginea umple spațiul fără a se deforma */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-}
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(232, 155, 211, 0.8); /* Culoare roz semi-transparentă */
-    color: white;
-    border: none;
+.shop-filters select {
     padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    font-weight: bold;
-    border-radius: 50%; /* Butoane circulare */
-    transition: background-color 0.3s, transform 0.3s;
-    z-index: 10; /* Asigură că butoanele sunt deasupra imaginilor */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1em;
+    background: white;
+    color: #333;
+    min-width: 180px;
 }
 
-.carousel-button:hover {
-    background-color: #cf42a5; /* Culoare roz mai intensă la hover */
-    transform: translateY(-50%) scale(1.1);
+/* GRID CU TABLOURILE */
+.paintings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Se redimensionează automat */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.carousel-button.prev {
-    left: 10px;
+/* CARD INDIVIDUAL DE TABLOU */
+.painting-card {
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    opacity: 0; /* Inițial invizibil */
+    animation: fadeIn 0.8s ease-out forwards; /* Efect la încărcare */
 }
 
-.carousel-button.next {
-    right: 10px;
+.painting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* ========================================= */
-/* 6. FOOTER */
-/* ========================================= */
-footer {
-    /* ... (stiluri existente) ... */
-    margin-top: 50px; /* Asigură spațiu după carusel */
+/* IMAGINEA TABLOULUI */
+.painting-image {
+    width: 100%;
+    height: 350px;
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ========================================= */
-/* 7. RESPONSIVITATE (UPDATE) */
-/* ========================================= */
-@media (max-width: 900px) {
-    /* ... (stiluri existente pentru hero și about) ... */
-
-    /* Carusel pe ecrane mici */
-    .portfolio-carousel {
-        padding: 10px;
-    }
-    .carousel-item {
-        padding: 0 5px; /* Spațiu mai mic între imagini pe mobil */
-    }
-    .carousel-button {
-        padding: 8px 12px;
-        font-size: 1.2em;
-    }
-    .carousel-item img {
-        height: 250px; /* Înălțime mai mică pe mobil */
-    }
-}
-
-/* ========================================= */
-/* 8. ANIMAȚII */
-/* ========================================= */ 
-
-/* Containerul de animație */
-#particle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
+.painting-image img {
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Asigură că poți interacționa cu conținutul paginii */
-    z-index: -1; /* Plasează-l sub tot conținutul */
-    overflow: hidden;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
 }
 
-/* Stil de bază pentru floricele */
-.particle {
+/* TEXTUL TABLOULUI */
+.painting-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.painting-info .technique,
+.painting-info .dimensions {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+/* BUTONUL „INTERESAT” */
+.purchase-btn {
+    display: inline-block;
+    background-color: #e89bd3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(232, 155, 211, 0.3);
+    width: auto;
+    margin-top: 10px;
+}
+
+.purchase-btn:hover {
+    background: #cf42a5;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* STIL PENTRU TABLOURILE VÂNDUTE */
+.painting-card.sold {
+    opacity: 0.7;
+    position: relative;
+}
+
+.painting-card.sold .purchase-btn {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.painting-card.sold::before {
+    content: "VÂNDUT";
     position: absolute;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    opacity: 0.8;
-    transition: transform 0.05s linear, opacity 0.5s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg);
+    background: rgba(255, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: 700;
+    z-index: 10;
 }
 
-/* Definim animația de cădere */
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(720deg); /* Cădere pe toată înălțimea vizibilă */
-        opacity: 0;
+/* ========================================= */
+/* 5. RESPONSIVITATE SHOP */
+/* ========================================= */
+
+/* Telefoane (sub 768px) */
+@media (max-width: 768px) {
+    nav {
+       display: block;
+       text-align: center;
+    }
+    .logo {
+        display: block;
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+    .paintings-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .shop-filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .shop-filters select {
+        width: 100%;
+        min-width: unset;
+    }
+    .hero-main-content {
+        flex-direction: column;
+    }
+    .hero-text-block {
+        padding-left: 0;
+        padding-top: 30px;
+    }
+    .hero-image-block {
+        padding-right: 0;
+    }
+    .hero-image-block img {
+        height: auto;
+    }
+}
+
+/* Tablete (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .paintings-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================= */
+/* 6. STILURI LIGHTBOX / MODAL IMAGE VIEWER & HARTA */
+/* ========================================= */
+
+/* SECȚIUNEA HĂRȚII */
+.contact-map-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#map {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* LIGHTBOX (FEREASTRĂ MĂRIRE IMAGINE) */
+.modal {
+    display: none; /* Ascunsă implicit */
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    animation: fadeInModal 0.3s ease-out;
+    cursor: pointer;
+}
+
+/* Imaginea din interiorul modalului */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+    width: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: zoomInImage 0.3s ease-out;
+}
+
+/* Butonul X de închidere */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #e89bd3;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Text sub imagine */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+/* ANIMAȚII */
+@keyframes fadeInModal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes zoomInImage {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+/* Adaptare pentru ecrane mici */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+        max-height: 70vh;
     }
 }

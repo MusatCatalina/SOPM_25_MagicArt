@@ -1,0 +1,169 @@
+<!DOCTYPE html> <!-- Specifică tipul documentului ca HTML5 -->
+<html lang="ro"> <!-- Începutul documentului HTML, limba română -->
+<head>
+    <meta charset="UTF-8"> <!-- Setează codarea caracterelor (UTF-8) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimizează pentru dispozitive mobile -->
+    <title>Shop - Tablouri Disponibile</title> <!-- Titlul paginii din tabul browserului -->
+    
+    <link rel="stylesheet" href="style.css"> <!-- Leagă fișierul CSS extern pentru stilizare -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Importă fontul Poppins din Google Fonts -->
+</head>
+
+<body> <!-- Începutul conținutului vizibil al paginii -->
+    <header> <!-- Secțiunea de antet (susul paginii) -->
+        <div class="container"> <!-- Container pentru centrare și structurare -->
+            <div class="logo"> <!-- Secțiune pentru logo -->
+               <img src="logo.jpeg" alt="MagícArt Logo" style="height: 40px;"> <!-- Imaginea logo-ului galeriei -->
+            </div>
+
+            <nav> <!-- Bara de navigație -->
+                <a href="index.html">Home</a> <!-- Buton către pagina principală -->
+                <a href="shop.html" class="active">Shop</a> <!-- Buton către pagina curentă (Shop) -->
+                <a href="custom.html">Custom</a> <!-- Buton către pagina cu comenzi personalizate -->
+            </nav>
+        </div>
+    </header>
+
+    <div class="container"> <!-- Container general pentru conținut -->
+        <h1 class="main-heading">COLECȚIA DE TABLOURI ORIGINALE</h1> <!-- Titlul principal al paginii -->
+
+        <section id="shop" class="page-section"> <!-- Secțiunea principală pentru magazin -->
+            <div class="shop-intro"> <!-- Descriere introductivă -->
+                <p>Fiecare lucrare este unică și semnată. Descoperă stilul care te reprezintă.</p>
+            </div>
+
+            <div class="shop-filters"> <!-- Filtrele pentru selecția tablourilor -->
+                <select id="filter-technique"> <!-- Filtru pentru tehnica de pictură -->
+                    <option value="all">Toate tehnicile</option>
+                    <option value="acuarela">Acuarelă/Mixtă</option>
+                    <option value="creion">Creion/Grafit</option>
+                    <option value="ulei">Ulei</option> 
+                    <option value="acrilic">Acrilic</option>
+                </select>
+                
+                <select id="filter-size"> <!-- Filtru pentru dimensiunea tabloului -->
+                    <option value="all">Toate dimensiunile</option>
+                    <option value="mic">Mici (până în 40cm)</option>
+                    <option value="mediu">Medii (40-80cm)</option>
+                    <option value="mare">Mari (peste 80cm)</option>
+                </select>
+            </div>
+
+            <div class="paintings-grid"> <!-- Grilă care conține toate tablourile -->
+
+                <!-- CARD 1 -->
+                <div class="painting-card" data-technique="acuarela" data-size="mediu"> <!-- Card cu date despre tehnică și mărime -->
+                    <div class="painting-image">
+                        <img src="tablou_1.jpeg" alt="Tablou 1: Câine în Acuarelă și Pastel"> <!-- Imaginea tabloului -->
+                    </div>
+                    <div class="painting-info"> <!-- Informațiile tabloului -->
+                        <h3>Tablou 1</h3>
+                        <p class="technique">Acuarelă și creioane colorate</p>
+                        <p class="dimensions">40 × 50 cm</p>
+                        <p class="price">750 RON</p>
+                        <button class="purchase-btn">Interesat</button> <!-- Buton pentru a anunța interesul -->
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="painting-card" data-technique="creion" data-size="mic">
+                    <div class="painting-image">
+                        <img src="tablou_2.jpeg" alt="Tablou 2: Portret în Grafit">
+                    </div>
+                    <div class="painting-info">
+                        <h3>Tablou 2</h3>
+                        <p class="technique">Grafit pe hârtie premium</p>
+                        <p class="dimensions">30 × 40 cm</p>
+                        <p class="price">550 RON</p>
+                        <button class="purchase-btn">Interesat</button>
+                    </div>
+                </div>
+
+                <!-- CARD 3 (VÂNDUT) -->
+                <div class="painting-card sold" data-technique="acuarela" data-size="mic"> <!-- Clasa "sold" marchează tabloul ca vândut -->
+                    <div class="painting-image">
+                        <img src="tablou_3.jpeg" alt="Tablou 3: Ilustrație cu Rodii">
+                    </div>
+                    <div class="painting-info">
+                        <h3>Tablou 3</h3>
+                        <p class="technique">Acuarelă și tuș pe hârtie</p>
+                        <p class="dimensions">30 × 30 cm</p>
+                        <p class="price">650 RON</p>
+                        <button class="purchase-btn" disabled>Vândut</button> <!-- Buton dezactivat -->
+                    </div>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="painting-card" data-technique="ulei" data-size="mediu">
+                    <div class="painting-image">
+                        <img src="tablou_4.jpeg" alt="Tablou 4: Reproductie Mona Lisa în Ulei">
+                    </div>
+                    <div class="painting-info">
+                        <h3>Tablou 4</h3>
+                        <p class="technique">Ulei pe pânză</p>
+                        <p class="dimensions">50 × 70 cm</p>
+                        <p class="price">1200 RON</p>
+                        <button class="purchase-btn">Interesat</button>
+                    </div>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="painting-card" data-technique="acrilic" data-size="mic">
+                    <div class="painting-image">
+                        <img src="tablou_5.jpeg" alt="Tablou 5: Peisaj circular în acrilic pe lemn">
+                    </div>
+                    <div class="painting-info">
+                        <h3>Tablou 5</h3>
+                        <p class="technique">Acrilic pe placă de lemn</p>
+                        <p class="dimensions">30 cm diametru</p>
+                        <p class="price">400 RON</p>
+                        <button class="purchase-btn">Interesat</button>
+                    </div>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="painting-card" data-technique="acuarela" data-size="mic">
+                    <div class="painting-image">
+                        <img src="tablou_6.jpeg" alt="Tablou 6: Peisaj în acuarelă, format carte poștală">
+                    </div>
+                    <div class="painting-info">
+                        <h3>Tablou 6</h3>
+                        <p class="technique">Acuarelă pe hârtie specială</p>
+                        <p class="dimensions">Format A6</p>
+                        <p class="price">300 RON</p>
+                        <button class="purchase-btn">Interesat</button>
+                    </div>
+                </div>
+                
+            </div> <!-- Sfârșitul grilei de tablouri -->
+        </section>
+        
+        <!-- SECȚIUNE HARTĂ -->
+        <section class="page-section contact-map-section">
+            <h2>Ne Găsești și Fizic!</h2>
+            <p class="map-text">Vino să vezi tablourile originale în galerie. Suntem deschiși Luni - Vineri: 10:00 - 18:00.</p>
+            <div id="map" style="height: 400px; width: 100%;"></div> <!-- Container pentru harta Google Maps -->
+        </section>
+        
+    </div> <!-- Închiderea containerului principal -->
+
+    <footer> <!-- Secțiunea de jos a paginii -->
+        <div class="container">
+            <p>&copy; 2025 Galerie de Artă. Toate drepturile rezervate.</p> <!-- Textul din footer -->
+        </div>
+    </footer>
+
+    <!-- FEREASTRĂ MODALĂ pentru vizualizarea mărită a imaginilor -->
+    <div id="image-modal" class="modal">
+        <span class="close-button">&times;</span> <!-- Buton pentru închiderea ferestrei -->
+        <img class="modal-content" id="modal-img"> <!-- Imaginea mărită -->
+        <div id="caption"></div> <!-- Text explicativ -->
+    </div>
+
+    <!-- Script Google Maps (cu cheia API și funcția de inițializare) -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq2TnjlRF31KcAromshFqH047hWt1YEzU&callback=initMap"></script>
+
+    <!-- Script JavaScript propriu pentru funcționalități (filtrare, hartă, modal etc.) -->
+    <script src="script.js"></script>
+</body>
+</html>
