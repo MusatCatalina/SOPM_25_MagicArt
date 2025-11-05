@@ -1,39 +1,106 @@
+/* ========================================= */
+/* 1. STILURI GLOBALE ȘI LAYOUT DE BAZĂ */
+/* ========================================= */
+
+/* Corpul întregii pagini */
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #ffeef2;
-  color: #7b1f3a;
-  text-align: center;
+    margin: 0; /* elimină spațiile implicite ale browserului */
+    font-family: 'Poppins', Arial, sans-serif; /* font elegant */
+    background-color: #fff5f7; /* roz pal - fundalul general */
+    color: #4a2b33; /* text vișiniu subtil */
+    text-align: center; /* textul centrat în mod implicit */
+    line-height: 1.6; /* spațiere între rânduri, pentru lizibilitate */
 }
 
-/* HEADER */
+/* Centrare conținut principal în pagină */
+.container {
+    max-width: 1200px; /* limitează lățimea maximă */
+    margin: 0 auto; /* centrează containerul pe ecran */
+    padding: 0 20px; /* adaugă spațiu lateral */
+}
+
+/* ========================================= */
+/* 2. HEADER ȘI NAVIGARE */
+/* ========================================= */
+
+/* Bara de sus (logo + meniu) */
 header {
-  background-color: #f8c8d8;
-  padding: 20px;
-  color: #7b1f3a;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* alb curat */
+    padding: 15px 0; /* spațiu sus și jos */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* umbră discretă */
+    position: sticky; /* rămâne sus când derulezi */
+    top: 0;
+    z-index: 1000; /* se afișează peste alte elemente */
 }
 
+/* Aranjarea conținutului din header */
+header .container {
+    display: flex; /* pentru aliniere */
+    justify-content: space-between; 
+    align-items: center; /* aliniere verticală */
+}
+
+/* Titlul din header (dacă există) */
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #b23a6f; /* accent roz-vișiniu */
+    letter-spacing: 1px; /* spațiere între litere */
+}
+
+/* ========================================= */
+/* LOGO */
+/* ========================================= */
+
+/* Logo-ul din colțul stânga */
+.logo {
+    display: flex; /* imagine + text pe același rând */
+    align-items: center;
+    gap: 10px; /* spațiu între imagine și eventual text */
+}
+
+/* Imaginea de logo */
+.logo img {
+    height: 45px; /* înălțime fixă */
+    width: auto; /* lățime automată proporțională */
+}
+
+/* ========================================= */
+/* NAVIGARE */
+/* ========================================= */
+
+/* Bara de navigare (meniul) */
+nav {
+    display: flex;
+    gap: 25px; /* distanță între linkuri */
+}
+
+/* Linkurile din meniu */
 nav a {
-  color: #7b1f3a;
-  text-decoration: none;
-  margin: 0 10px;
-  background: #fddde6;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: all 0.3s;
+    color: #555; /* gri neutru */
+    text-decoration: none; /* fără subliniere */
+    font-weight: 500;
+    font-size: 1em;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent; /* linie invizibilă sub text */
+    transition: all 0.3s ease; /* efect lin la hover */
 }
 
-nav a:hover, nav a.active {
-  background: #fbb6c9;
-  color: white;
+/* Efect hover + activ */
+nav a:hover,
+nav a.active {
+    color: #d86ba9; /* roz accent */
+    border-bottom: 2px solid #d86ba9; /* subliniere roz */
 }
 
-/* INTRO */
+/* ========================================= */
+/* INTRODUCERE */
+/* ========================================= */
+
 .intro {
-  padding: 50px 20px 20px;
-  animation: fadeIn 1.5s ease;
+  padding: 50px 20px 20px; /* spațiere sus și jos */
+  animation: fadeIn 1.5s ease; /* efect de apariție lin */
 }
 
 .intro h2 {
@@ -42,25 +109,30 @@ nav a:hover, nav a.active {
 }
 
 .intro p {
-  width: 70%;
+  width: 70%; /* lățime mai mică pentru text central */
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* GALERIE */
+/* ========================================= */
+/* GALERIE DE IMAGINI */
+/* ========================================= */
+
 .gallery-preview {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 60px;
+  flex-wrap: wrap; /* se ajustează automat pe ecran mai mic */
+  gap: 60px; /* distanță între secțiuni */
   margin: 40px 0;
 }
 
+/* Fiecare coloană (caricaturi / portrete) */
 .gallery-left, .gallery-right {
   width: 40%;
 }
 
+/* Grilă pentru imaginile din galerie */
 .image-grid {
   display: flex;
   flex-wrap: wrap;
@@ -68,34 +140,40 @@ nav a:hover, nav a.active {
   justify-content: center;
 }
 
+/* Stil pentru poze */
 .image-grid img {
   width: 150px;
   height: 150px;
-  object-fit: cover;
+  object-fit: cover; /* taie imaginea pentru a se potrivi perfect */
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
 }
 
+
 .image-grid img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 4px 15px rgba(232, 106, 146, 0.3);
+  transform: scale(1.07); /* puțin zoom */
+  box-shadow: 0 4px 15px rgba(232, 106, 146, 0.3); /* umbră rozalie */
 }
 
-/* FORMULAR */
+/* ========================================= */
+/* FORMULAR DE COMANDĂ */
+/* ========================================= */
+
 .custom-form {
-  background: #ffdce4;
-  border-radius: 20px;
+  background: #ffdce4; /* roz deschis */
+  border-radius: 20px; /* colțuri rotunjite */
   padding: 40px;
   width: 80%;
   margin: 0 auto 60px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Text explicativ despre fotografie */
 .photo-tip {
   background: #f9c5d1;
-  border-left: 5px solid #e86a92;
+  border-left: 5px solid #e86a92; /* bară roz în stânga */
   padding: 10px;
   border-radius: 10px;
   width: 80%;
@@ -103,9 +181,12 @@ nav a:hover, nav a.active {
   font-size: 0.9em;
 }
 
-/* UPLOAD */
+/* ========================================= */
+/* UPLOAD FOTO */
+/* ========================================= */
+
 .upload-label {
-  background-color: #e86a92;
+  background-color: #e86a92; /* roz puternic */
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
@@ -114,10 +195,12 @@ nav a:hover, nav a.active {
   transition: background 0.3s ease;
 }
 
+
 .upload-label:hover {
   background-color: #d4567e;
 }
 
+/* Imaginea de previzualizare */
 #previewImage {
   width: 200px;
   border-radius: 15px;
@@ -125,7 +208,10 @@ nav a:hover, nav a.active {
   box-shadow: 0 4px 10px rgba(232, 106, 146, 0.2);
 }
 
-/* === OPȚIUNI (CARICATURĂ / PORTRET) === */
+/* ========================================= */
+/* OPȚIUNI DE LUCRARE (CARICATURĂ / PORTRET) */
+/* ========================================= */
+
 .image-selection {
   display: flex;
   justify-content: center;
@@ -134,8 +220,9 @@ nav a:hover, nav a.active {
   flex-wrap: wrap;
 }
 
+/* Cardurile pentru opțiuni */
 .option-card {
-  width: 250px; /* lățime fixă */
+  width: 250px;
   border-radius: 15px;
   overflow: hidden;
   background: #fff;
@@ -146,24 +233,28 @@ nav a:hover, nav a.active {
   text-align: center;
 }
 
+/* Imaginile din interiorul cardurilor */
 .option-card img {
   width: 100%;
-  height: 250px; /* pătrat proporționat */
+  height: 250px;
   object-fit: cover;
   border-radius: 12px 12px 0 0;
   transition: transform 0.3s ease;
 }
 
+/* Efect hover pe imagine */
 .option-card:hover img {
   transform: scale(1.05);
 }
 
+/* Efect vizual pentru opțiunea selectată */
 .option-card.selected {
   border: 3px solid #e86a92;
   box-shadow: 0 0 20px rgba(232,106,146,0.4);
   transform: scale(1.05);
 }
 
+/* Textul de sub imagine */
 .option-card p {
   background: #ffeef2;
   margin: 0;
@@ -173,13 +264,18 @@ nav a:hover, nav a.active {
   border-radius: 0 0 12px 12px;
 }
 
+/* ========================================= */
 /* FORM INPUTS */
+/* ========================================= */
+
+/* Grupurile din formular */
 .form-group {
   width: 60%;
   margin: 15px auto;
   text-align: left;
 }
 
+/* Câmpurile de text și select */
 input, select {
   width: 100%;
   padding: 10px;
@@ -189,7 +285,10 @@ input, select {
   color: #7b1f3a;
 }
 
-/* BUTTON */
+/* ========================================= */
+/* BUTON DE TRIMITERE */
+/* ========================================= */
+
 button.submit-btn {
   background: #e86a92;
   color: white;
@@ -202,12 +301,16 @@ button.submit-btn {
   font-weight: bold;
 }
 
+/* Efect hover */
 button.submit-btn:hover {
   background: #d4567e;
   transform: scale(1.05);
 }
 
-/* CONFIRMATION */
+/* ========================================= */
+/* MESAJ DE CONFIRMARE */
+/* ========================================= */
+
 .confirmation-message {
   background: #f9c5d1;
   border-radius: 15px;
@@ -216,28 +319,33 @@ button.submit-btn:hover {
   color: #7b1f3a;
 }
 
-/* MODAL (LIGHTBOX) */
+/* ========================================= */
+/* MODAL (LIGHTBOX PENTRU IMAGINI MĂRITE) */
+/* ========================================= */
+
 .modal {
-  display: none;
+  display: none; /* ascuns implicit */
   position: fixed;
   z-index: 999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 222, 230, 0.95);
-  backdrop-filter: blur(3px);
+  background-color: rgba(255, 222, 230, 0.95); /* fundal roz transparent */
+  backdrop-filter: blur(3px); 
 }
+
 
 .modal-content {
   margin: auto;
   display: block;
-  width: 45%; /* imagine mai mică */
+  width: 45%;
   max-width: 550px;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(232, 106, 146, 0.4);
-  animation: zoomInSoft 0.5s ease;
+  animation: zoomInSoft 0.5s ease; /* animație de apariție */
 }
+
 
 #caption {
   text-align: center;
@@ -246,6 +354,7 @@ button.submit-btn:hover {
   font-weight: bold;
 }
 
+/* Butonul "X" pentru închidere */
 .close {
   position: absolute;
   top: 30px;
@@ -256,11 +365,15 @@ button.submit-btn:hover {
   cursor: pointer;
 }
 
+/* Efect hover pe X */
 .close:hover {
   color: #e86a92;
 }
 
+/* ========================================= */
 /* FOOTER */
+/* ========================================= */
+
 footer {
   background-color: #f8c8d8;
   padding: 20px;
@@ -269,12 +382,17 @@ footer {
   box-shadow: 0 -3px 10px rgba(0,0,0,0.05);
 }
 
-/* ANIMATIONS */
+/* ========================================= */
+/* ANIMAȚII */
+/* ========================================= */
+
+/* Efectul de apariție lină */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(25px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Efectul de mărire la deschiderea imaginii (Lightbox) */
 @keyframes zoomInSoft {
   0% { transform: scale(0.8); opacity: 0.6; }
   100% { transform: scale(1); opacity: 1; }
